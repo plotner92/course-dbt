@@ -2,23 +2,23 @@ version: 2
 
 models:
 
-  - name: stg__addresses
+  - name: stg_postgres__addresses
     description: Staging model that holds addresses.
  
-  - name: stg__events
+  - name: stg_postgres__events
     description: Staging model that holds events.
      
-  - name: stg__order_items
+  - name: stg_postgres__order_items
     description: Staging model that holds order_items.
      
-  - name: stg__orders
+  - name: stg_postgres__orders
     description: Staging model that holds orders.
      
-  - name: stg__products
+  - name: stg_postgres__products
     description: Staging model that holds products.
      
-  - name: stg__promos
+  - name: stg_postgres__promos
     description: Staging model that holds promos.
      
-  - name: stg__users
+  - name: stg_postgres__users
     description: Staging model that holds users.

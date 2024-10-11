@@ -36,5 +36,5 @@ models:
       +materialized: view
 
     staging:
-      +schema: stg
+      +schema: stg_postgres
       +materialized: table
