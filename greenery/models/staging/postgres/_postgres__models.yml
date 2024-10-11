@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: stg__addresses
+    description: Staging model that holds addresses.
