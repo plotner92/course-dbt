@@ -4,10 +4,10 @@ with addresses as (
 )
 
 select
-    address
-    , address_id
-    , country
-    , state
-    , zipcode
+    address_id,
+    address,
+    zipcode,
+    state,
+    country
 
 from addresses
