@@ -1,5 +1,3 @@
-{{ config( alias='addresses' ) }}
-
 with addresses as (
 
     select * from {{ source('postgres', 'addresses') }}

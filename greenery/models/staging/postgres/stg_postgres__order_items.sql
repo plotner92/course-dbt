@@ -1,5 +1,3 @@
-{{ config( alias='order_items' ) }}
-
 with order_items as (
 
     select * from {{ source('postgres', 'order_items') }}
