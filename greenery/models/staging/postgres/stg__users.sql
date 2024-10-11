@@ -1,3 +1,5 @@
+{{ config( alias='users' ) }}
+
 with users as (
 
     select * from {{ source('postgres', 'users') }}

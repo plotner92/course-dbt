@@ -1,3 +1,5 @@
+{{ config( alias='events' ) }}
+
 with events as (
 
     select * from {{ source('postgres', 'events') }}

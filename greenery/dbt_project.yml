@@ -36,4 +36,5 @@ models:
       +materialized: view
 
     staging:
+      +schema: stg
       +materialized: table

@@ -1,3 +1,5 @@
+{{ config( alias='promos' ) }}
+
 with promos as (
 
     select * from {{ source('postgres', 'promos') }}
