@@ -3,21 +3,19 @@
 ## How many users do we have?
 ### 130
 ```
---how many users do we have? 130
-select count(distinct user_id) from stg__users;
+select count(distinct user_id) from stg_postgres__users;
 ```
 
 ## On average, how many orders do we receive per hour?
 ### 15.04
 ```
---on average, how many orders do we receive per hour? 15.04
 with orders_per_hour as(
 
     select 
         hour(created_at) as created_hour, 
         count(order_id) as ct_orders
         
-    from stg__orders 
+    from stg_postgres__orders 
     
     group by 1
 )
@@ -34,7 +32,7 @@ with days_to_deliver as(
     select
         timestampdiff(day, created_at, delivered_at) as days_to_deliver
 
-    from stg__orders
+    from stg_postgres__orders
 )
 
 select avg(days_to_deliver) as avg_days_to_deliver from days_to_deliver;
@@ -52,7 +50,7 @@ with orders_per_user as(
         user_id,
         count(order_id) as ct_orders
 
-    from stg__orders
+    from stg_postgres__orders
 
     group by 1
 )
@@ -82,7 +80,7 @@ with sessions as (
         distinct session_id,
         min(created_at) as session_start
 
-    from stg__events
+    from stg_postgres__events
 
     group by 1
 ),
