@@ -7,12 +7,13 @@ select count(distinct user_id) from stg_postgres__users;
 ```
 
 ## On average, how many orders do we receive per hour?
-### 15.04
+### 7.5
 ```
+--on average, how many orders do we receive per hour? 7.5
 with orders_per_hour as(
 
     select 
-        hour(created_at) as created_hour, 
+        date(created_at) || '-' || hour(created_at) as created_date_hour, 
         count(order_id) as ct_orders
         
     from stg_postgres__orders 
@@ -71,9 +72,9 @@ order by order_category;
 ```
 
 ## On average, how many unique sessions do we have per hour?
-### 24.1
+### 11.8
 ```
---on average, how many unique sessions do we have per hour? 24.1
+--on average, how many unique sessions do we have per hour? 11.8
 with sessions as (
 
     select
@@ -88,7 +89,7 @@ with sessions as (
 sessions_per_hour as (
 
     select
-        hour(session_start),
+        date(session_start) || '-' || hour(session_start),
         count(session_id) as ct_sessions
 
     from sessions
