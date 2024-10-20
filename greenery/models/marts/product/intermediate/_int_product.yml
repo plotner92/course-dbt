@@ -1,0 +1,25 @@
+version: 2
+
+models:
+
+  - name: int_product__page_views
+    description: Lists page view events by product and date
+    columns:
+      - name: event_id
+        description: event_id
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
+
+  - name: int_product__product_performance
+    description: Lists products and their all-time quantity sold and revenue sold
+    columns:
+      - name: _key
+        description: md5(order_items.product_id || order_items.order_id)
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null

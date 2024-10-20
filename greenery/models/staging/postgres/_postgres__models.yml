@@ -4,21 +4,63 @@ models:
 
   - name: stg_postgres__addresses
     description: Staging model that holds addresses.
+    columns:
+      - name: address_id
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
  
   - name: stg_postgres__events
     description: Staging model that holds events.
+    columns:
+      - name: event_id
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
      
   - name: stg_postgres__order_items
     description: Staging model that holds order_items.
      
   - name: stg_postgres__orders
     description: Staging model that holds orders.
+    columns:
+      - name: order_id
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
      
   - name: stg_postgres__products
     description: Staging model that holds products.
+    columns:
+      - name: product_id
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
      
   - name: stg_postgres__promos
     description: Staging model that holds promos.
+    columns:
+      - name: promo_id
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
      
   - name: stg_postgres__users
     description: Staging model that holds users.
+    columns:
+      - name: user_id
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,25 @@
+version: 2
+
+models:
+
+  - name: fct_product__daily_page_views.sql
+    description: Daily page views by product
+    columns:
+      - name: _key
+        description: md5(product_name || date(event_date))
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_product__daily_product_performance
+    description: Daily order summary statistics by product
+    columns:
+      - name: _key
+        description: md5(product_name || order_date)
+        tags:
+          - primary-key
+        tests:
+          - unique
+          - not_null
