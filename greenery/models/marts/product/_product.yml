@@ -2,24 +2,35 @@ version: 2
 
 models:
 
-  - name: fct_product__daily_page_views.sql
-    description: Daily page views by product
+  - name: fct_product__conversion_rate_by_product
+    description: calculates conversion rate by product
     columns:
-      - name: _key
-        description: md5(product_name || date(event_date))
+      - name: product_id
+        description: events.product_id
         tags:
           - primary-key
-        tests:
+        data_tests:
           - unique
           - not_null
 
+  - name: fct_product__daily_page_views
+    description: Daily page views by product
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - product_name
+            - date
+
   - name: fct_product__daily_product_performance
     description: Daily order summary statistics by product
-    columns:
-      - name: _key
-        description: md5(product_name || order_date)
-        tags:
-          - primary-key
-        tests:
-          - unique
-          - not_null
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - product_name
+            - order_date
+
+  - name: fct_product__latest_page_view
+    description: Returns the latest date with a page view per product
+
+  - name: fct_product__total_conversion_rate
+    description: Calculates the total sessions, sessions with a checkout, and resulting conversion rate

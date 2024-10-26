@@ -23,3 +23,13 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: int_product__unique_sessions
+    description: Unique sessions with count of event types
+    columns:
+      - name: session_id
+        tags:
+          - primary-key
+        data_tests:
+          - unique
+          - not_null                    
