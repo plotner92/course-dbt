@@ -34,3 +34,17 @@ models:
 
   - name: fct_product__total_conversion_rate
     description: Calculates the total sessions, sessions with a checkout, and resulting conversion rate
+
+  - name: fct_product__product_funnel
+    description: Count and conversion rate for the three levels of product funnel - page views, add to carts, checkouts
+
+exposures:
+  
+  - name: Product Funnel Dashboard
+    type: dashboard
+    maturity: high
+    owner:
+      name: Emily Hawkins
+      email: emily@greenery.com
+    depends_on:
+      - ref('fct_product__product_funnel')
